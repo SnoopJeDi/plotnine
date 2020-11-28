@@ -77,7 +77,7 @@ class ggplot:
         self.watermarks = []
         self.axs = None
 
-    def __repr__(self):
+    def __str__(self):
         """
         Print/show the plot
         """
@@ -87,6 +87,14 @@ class ggplot:
         if not self.figure:
             self.draw()
         plt.show()
+        # Return and empty string so that print(p) is "pretty"
+        return ''
+
+    def __repr__(self):
+        """
+        Print/show the plot
+        """
+        self.__str__()
         return '<ggplot: (%d)>' % self.__hash__()
 
     def __deepcopy__(self, memo):
